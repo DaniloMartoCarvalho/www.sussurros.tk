@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+
+{% block content %}
+<header class="py-3">
+  <div class="container-xl">
+    <div class="d-flex align-items-center  justify-content-between justify-content-md-center">
+      <h1><a href="{% url 'core:index' %}" class="m-0">
+        <img src="https://res.cloudinary.com/dejjtt8yt/image/upload/v1672892961/grama%20verde/logo_s8ds6a.png" alt="logo" width="128" height="48">
+      </a></h1>
+      <div>
+        <button type="button" class="btn btn-outline-secondary d-md-none" data-bs-toggle="modal" data-bs-target="#modalSearch">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <button class="btn btn-outline-secondary d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavMenu" aria-controls="offcanvasNavMenu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container-xl border-top border-bottom d-none d-md-block">
+  <nav class="d-flex justify-content-center align-items-center gap-2">
+    <a href="" class="btn">Comics</a>
+    <a href="" class="btn">Mangas</a>
+    <a href="" class="btn">Animes</a>
+    <a href="" class="btn">Movies</a>
+    <a href="" class="btn">Games</a>
+  </nav>
+</div>
+
+{# Modal Search #}
+<div class="modal fade" id="modalSearch" tabindex="-1" aria-labelledby="modalSearchLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <form action="" method="post">
+          {% csrf_token %}
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <button type="submit" class="input-group-text" id="basic-addon2">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{# OffCanvas Nav Menu #}
+<section class="offcanvas offcanvas offcanvas-end w-100 m-0 p-0" tabindex="-1" id="offcanvasNavMenu" aria-labelledby="offcanvasNavMenuLabel">
+  <div class="container-xl h-100">
+    <header class="offcanvas-header px-0 py-3">
+      <h5 class="offcanvas-title" id="offcanvasNavMenuLabel">
+        <img src="https://res.cloudinary.com/dejjtt8yt/image/upload/v1672892961/grama%20verde/logo_s8ds6a.png" alt="logo" width="128" height="48">
+      </h5>
+      <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="offcanvas" aria-label="Close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </header>
+    <main class="offcanvas-body h-75 my-5">
+      <nav class="d-flex flex-column justify-content-between align-content-center h-100">
+        <a href="" class="btn">Comics</a>
+        <a href="" class="btn">Mangas</a>
+        <a href="" class="btn">Animes</a>
+        <a href="" class="btn">Movies</a>
+        <a href="" class="btn">Games</a>
+      </nav>
+    </main>
+  </div>
+</section>
+{% endblock content %}
